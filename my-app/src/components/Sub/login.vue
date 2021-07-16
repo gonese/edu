@@ -32,7 +32,7 @@
             login(){
                 const {name,password,$router} = this
                 this.$router.push({
-                    name:"Home",
+                    path:"/",
                     parameters:{
                         username: this.name
                     }
