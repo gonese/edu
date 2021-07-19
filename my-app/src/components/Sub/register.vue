@@ -7,7 +7,7 @@
             </div>
             <div>
                 <p>password:</p>
-                <input v-model="password" placeholder="password">
+                <input v-model="password" placeholder="password" type = "password">
             </div>
             <div>
                 <p>email:</p>
@@ -21,11 +21,20 @@
     </div>
 </template>
 <script>
-import { defineComponent } from '@vue/composition-api'
-
-export default defineComponent({
-    setup() {
-        
+export default {
+    name:"APP",
+    data(){
+        return {
+        username:"",
+        password:"",
+        email:"",
+        phone:""
+        };
     },
-})
+    methods: {
+        validation: function(){
+            
+        }
+    }
+}
 </script>
