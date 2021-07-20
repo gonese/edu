@@ -13,21 +13,41 @@
                             <span v-if="!$v.username.maxLength">Username must contain most {{$v.username.$params.maxLength.max}} characters</span>
                         </div>
                     </div>
-                    <div>
-                        <p>password:</p>
-                        <input v-model="password" placeholder="Password">
+                     <div class="form-row">
+                        <p> Email:</p>
+                        <input type=text placeholder="email" v-model.trim="$v.email.$model" :class="{'is-invalid':$v.email.$error,'is-valid':!$v.email.$invalid}">
+                        <div class="valid-feedback">Valid email</div>
+                        <div class="invalid-feedback">
+                            <span v-if="!$v.email.email">Invalid Email Address</span>
+                            <span v-if="!$v.email.required"> You need either email or phone number for registeration</span>
+                        </div>
                     </div>
-                <div>
-                    <p>repeat the password::</p>
-                    <input v-model="repeatPassword" placeholder="Repeat Password">
+                     <div class="form-row">
+                        <p> Phone:</p>
+                        <input type=text placeholder="phone" v-model.trim="$v.phone.$model" :class="{'is-invalid':$v.phone.$error,'is-valid':!$v.phone.$invalid}">
+                        <div class="valid-feedback">Valid Phone Number</div>
+                        <div class="invalid-feedback">
+                            <span v-if="!$v.phone.numeric">Invalid Phone Number</span>
+                            <span v-if="!$v.phone.required">You need either email or phone number for registeration</span>
+                        </div>
                     </div>
-                    <div>
-                        <p>email:</p>
-                        <input v-model="email" placeholder="Email Address">
+                     <div class="form-row">
+                        <p> password:</p>
+                        <input type=text placeholder="password" v-model.trim="$v.password.$model" :class="{'is-invalid':$v.password.$error,'is-valid':!$v.password.$invalid}">
+                        <div class="valid-feedback">Valid Password</div>
+                        <div class="invalid-feedback">
+                            <span v-if="!$v.password.required">password is required</span>
+                            <span v-if="!$v.password.minLength">password must contain at least {{$v.password.$params.minLength.min}} characters</span>
+                            <span v-if="!$v.password.maxLength">password must contain most {{$v.password.$params.maxLength.max}} characters</span>
+                        </div>
                     </div>
-                    <div>
-                        <p>phone number:</p>
-                        <input v-model="phone" placeholder="Phone Number">
+                     <div class="form-row">
+                        <p> repeat password:</p>
+                        <input type=text placeholder="repeat password" v-model.trim="$v.repeatpassword.$model" :class="{'is-invalid':$v.repeatpassword.$error,'is-valid':!$v.repeatpassword.$invalid}">
+                        <div class="valid-feedback">Valid Password</div>
+                        <div class="invalid-feedback">
+                            <span v-if="!$v.repeatpassword.sameas">Password doesn't match</span>
+                        </div>
                     </div>
                 </form>
             </div>    
@@ -41,7 +61,7 @@ export default{
     data(){
         return {username:'',
         password:'',
-        repeatPassword:'',
+        repeatpassword:'',
         email:'',
         phone:''
         }
@@ -60,7 +80,8 @@ export default{
             
         },
         repeatpassword:{
-            sameasPassword: sameAs('password')
+            required,
+            sameas: sameAs("password")
         },
         email:{
             email,
