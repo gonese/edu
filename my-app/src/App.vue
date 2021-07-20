@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+ <div id="app">
     
   <b-navbar toggleable="lg" type="dark" variant="info">
     <b-navbar-brand href="#">NavBar</b-navbar-brand>
@@ -37,13 +37,16 @@
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
-    <router-view/>
+  <router-view></router-view>
   </div>
+ 
 </template>
 
 <script>
+
 export default{
-  name:'App'
+  name:'App',
+
 }
 </script>
 

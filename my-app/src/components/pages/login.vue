@@ -11,6 +11,7 @@
         </div>
         <div>
             <el-button type="primary" @click="login" class="login_style">Log In</el-button>
+            <el-button type="primary" @click="register" class="login_style">register</el-button>
         </div>
     </div>
 </template>
@@ -39,6 +40,12 @@
                 })
 
             },
+            register(){
+                this.$router.push({
+                    path:"/register"
+                })
+            }
+            ,
             debug (event) {
                 console.log(event.target.name)
             }
